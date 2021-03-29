@@ -8,7 +8,7 @@ services:
     container_name: "web"
     build: ./
     working_dir: /code/bakerydemo
-    command: ./manage.py runserver 0.0.0.0:8000
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - ./wagtail:/code/wagtail:delegated,rw
       - ./bakerydemo:/code/bakerydemo:delegated,rw
